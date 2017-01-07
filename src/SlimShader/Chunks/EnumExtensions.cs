@@ -50,8 +50,8 @@ namespace SlimShader.Chunks
 		private static Attribute[] GetAttribute<TAttribute>(Enum value)
 			where TAttribute : Attribute
 		{
-			FieldInfo field = value.GetType().GetField(value.ToString());
-			return Attribute.GetCustomAttributes(field, typeof(TAttribute));
+			FieldInfo field = value.GetType().GetTypeInfo().GetField(value.ToString());
+			return field.GetCustomAttributes(typeof(TAttribute)).ToArray();
 		}
 	}
 }

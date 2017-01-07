@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace SlimShader.Util
 {
@@ -34,7 +35,7 @@ namespace SlimShader.Util
 			where T : struct
 		{
 			var decodedValue = DecodeValue(token, start, end);
-			if (typeof(T).IsEnum)
+			if (typeof(T).GetTypeInfo().IsEnum)
 				return (T) Enum.ToObject(typeof(T), decodedValue);
 			return (T) Convert.ChangeType(decodedValue, typeof(T));
 		}

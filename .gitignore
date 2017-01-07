@@ -40,3 +40,6 @@ httpd.parse.errors
  
 # Exclude ALL DLLs? (
 # *.dll
+
+project.lock.json
+.vs/
